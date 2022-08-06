@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import { TiDeleteOutline, TiEdit } from "react-icons/ti";
 
 const WorkoutDetails = ({ workout }) => {
   const { dispatch } = useWorkoutsContext();
@@ -45,7 +46,7 @@ const WorkoutDetails = ({ workout }) => {
 
   if (edit) {
     return (
-      <div className="edit-workout-details">
+      <div className="workout-details">
         <h4>{title}</h4>
         <p>
           <strong>Load (kg): </strong>
@@ -67,8 +68,12 @@ const WorkoutDetails = ({ workout }) => {
           <strong>Type: </strong>
           {type}
         </p>
-        <button onClick={cancelEdit}>Cancel</button>
-        <button onClick={saveEdit}>Save</button>
+        <button className="cancel-edit" onClick={cancelEdit}>
+          Cancel
+        </button>
+        <button className="save-edit" onClick={saveEdit}>
+          Save
+        </button>
       </div>
     );
   }
@@ -88,8 +93,12 @@ const WorkoutDetails = ({ workout }) => {
         <strong>Type: </strong>
         {type}
       </p>
-      <button onClick={handleDelete}>Delete</button>
-      <button onClick={handleEdit}>Edit</button>
+      <button className="delete-workout" onClick={handleDelete}>
+        <TiDeleteOutline></TiDeleteOutline>
+      </button>
+      <button className="edit-workout" onClick={handleEdit}>
+        <TiEdit></TiEdit>
+      </button>
     </div>
   );
 };

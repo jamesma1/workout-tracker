@@ -98,7 +98,7 @@ const WorkoutForm = ({ pageType }) => {
             </select>
           </div>
         </div>
-        <button>Add Workout</button>
+        <button className="add-workout-btn">Add Workout</button>
       </form>
       {error && <div className="error-message">{error}</div>}
     </>
